@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id            :bigint           not null, primary key
+#  birthday      :date
+#  document      :string
+#  document_type :integer
+#  name          :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
+one:
+  name: MyString
+  document: MyString
+  document_type: 1
+  birthday: 2024-02-15
+
+two:
+  name: MyString
+  document: MyString
+  document_type: 1
+  birthday: 2024-02-15
