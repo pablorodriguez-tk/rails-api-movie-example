@@ -14,8 +14,7 @@
 require 'ci_uy'
 
 class User < ApplicationRecord
-  has_many :actors_movies
-  has_many :movies, through: :actors_movies
+  has_and_belongs_to_many :movies, class_name: 'Movie'
 
   validates :name, presence: true
   validates :document, presence: true
@@ -27,7 +26,7 @@ class User < ApplicationRecord
   enum document_type: [:ci, :dni, :passport, :other]
 
   def as_json(options = {})
-    super(include: :actors_movies)
+    super(include: :movies)
   end
 
   def check_ci_format

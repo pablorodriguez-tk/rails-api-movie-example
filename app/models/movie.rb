@@ -22,15 +22,14 @@
 class Movie < ApplicationRecord
   belongs_to :director, class_name: 'User'
 
-  has_many :actors_movies
-  has_many :users, through: :actors_movies
+  has_and_belongs_to_many :actors, class_name: 'User'
 
   has_one :source
 
   before_save :downcase_gender
 
   def as_json(options = {})
-    super(include: :actors_movies)
+    super(include: :actors)
   end
 
   private

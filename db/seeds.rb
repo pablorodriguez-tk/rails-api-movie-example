@@ -9,10 +9,10 @@
 #   end
 
 
-ActorsMovie.destroy_all
-Source.destroy_all
-Movie.destroy_all
-User.destroy_all
+MoviesUser.delete_all
+Source.delete_all
+Movie.delete_all
+User.delete_all
 
 user1 = User.create(name: 'John Doe', document: '11111111', document_type: :ci, birthday: Date.new(1990, 1, 1))
 user2 = User.create(name: 'Jane Smith', document: '9876543', document_type: :dni, birthday: Date.new(1985, 5, 15))

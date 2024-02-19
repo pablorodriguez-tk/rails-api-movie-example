@@ -14,15 +14,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_122048) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "actors_movies", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["movie_id"], name: "index_actors_movies_on_movie_id"
-    t.index ["user_id"], name: "index_actors_movies_on_user_id"
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "gender"
@@ -32,6 +23,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_122048) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["director_id"], name: "index_movies_on_director_id"
+  end
+
+  create_table "movies_users", id: false, force: :cascade do |t|
+    t.bigint "movie_id", null: false
+    t.bigint "user_id", null: false
   end
 
   create_table "sources", force: :cascade do |t|
@@ -53,8 +49,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_19_122048) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "actors_movies", "movies"
-  add_foreign_key "actors_movies", "users"
   add_foreign_key "movies", "users", column: "director_id"
   add_foreign_key "sources", "movies"
 end
