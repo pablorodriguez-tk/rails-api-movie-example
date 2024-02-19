@@ -21,6 +21,10 @@
 #
 class Movie < ApplicationRecord
   belongs_to :director, class_name: 'User'
+
+  has_many :actors_movies
+  has_many :users, through: :actors_movies
+
   has_one :source
 
   before_save :downcase_gender
