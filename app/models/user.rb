@@ -26,6 +26,10 @@ class User < ApplicationRecord
 
   enum document_type: [:ci, :dni, :passport, :other]
 
+  def as_json(options = {})
+    super(include: :actors_movies)
+  end
+
   def check_ci_format
     if document_type == "ci"
      unless CiUY.validate(document)

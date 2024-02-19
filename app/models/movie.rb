@@ -29,6 +29,10 @@ class Movie < ApplicationRecord
 
   before_save :downcase_gender
 
+  def as_json(options = {})
+    super(include: :actors_movies)
+  end
+
   private
   def downcase_gender
     self.gender = gender.downcase if gender.present?
