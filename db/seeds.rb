@@ -22,12 +22,12 @@ user5 = User.create(name: 'John Johnson', document: '12345678', document_type: :
 user6 = User.create(name: 'Jane Milag', document: '87654321', document_type: :dni, birthday: Date.new(1980, 6, 30))
 user7 = User.create(name: 'John Smith 3', document: '12345678', document_type: :passport, birthday: Date.new(1975, 12, 31))
 
-movie1 = Movie.create(title: 'The Matrix', gender: 'Action', release_date: Date.new(1999, 3, 31), qualification: 8, director: user1)
-movie2 = Movie.create(title: 'Inception', gender: 'Thriller', release_date: Date.new(2010, 7, 16), qualification: 9, director: user2)
-movie3 = Movie.create(title: 'The Dark Knight', gender: 'Action', release_date: Date.new(2008, 7, 18), qualification: 9, director: user2)
-movie4 = Movie.create(title: 'The Shaw', gender: 'romance', release_date: Date.new(2010, 7, 16), qualification: 9, director: user5)
-movie5 = Movie.create(title: 'Winning', gender: 'drama', release_date: Date.new(2008, 7, 18), qualification: 9, director: user6)
-movie6 = Movie.create(title: 'Anomalies', gender: 'comedy', release_date: Date.new(2010, 7, 16), qualification: 9, director: user7)
+movie1 = Movie.create(title: 'The Matrix', genre: :drama, release_date: Date.new(1999, 3, 31), qualification: 8, director: user1)
+movie2 = Movie.create(title: 'Inception', genre: :action, release_date: Date.new(2010, 7, 16), qualification: 9, director: user2)
+movie3 = Movie.create(title: 'The Dark Knight', genre: :action, release_date: Date.new(2008, 7, 18), qualification: 9, director: user2)
+movie4 = Movie.create(title: 'The Shaw', genre: :suspense, release_date: Date.new(2010, 7, 16), qualification: 9, director: user5)
+movie5 = Movie.create(title: 'Winning', genre: :fantasy, release_date: Date.new(2008, 7, 18), qualification: 9, director: user6)
+movie6 = Movie.create(title: 'Anomalies', genre: :comedy, release_date: Date.new(2010, 7, 16), qualification: 9, director: user7)
 
 # add on table actors_movies
 user1.movies << movie1

@@ -3,7 +3,7 @@
 # Table name: movies
 #
 #  id            :bigint           not null, primary key
-#  gender        :string
+#  genre         :string
 #  qualification :integer
 #  release_date  :date
 #  title         :string

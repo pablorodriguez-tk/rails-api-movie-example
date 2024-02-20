@@ -3,7 +3,7 @@
 # Table name: movies
 #
 #  id            :bigint           not null, primary key
-#  gender        :string
+#  genre         :string
 #  qualification :integer
 #  release_date  :date
 #  title         :string
@@ -22,12 +22,12 @@
 
 one:
   title: MyString
-  gender: MyString
+  genre: MyString
   release_date: 2024-02-15
   qualification: 1
 
 two:
   title: MyString
-  gender: MyString
+  genre: MyString
   release_date: 2024-02-15
   qualification: 1

@@ -1,7 +1,12 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
-    @movies = @movies.gender(params[:gender]) if params[:gender].present?
+    @movies = @movies.by_genre(params[:genre]) if params[:genre].present?
+    render json: @movies.to_json(include: :director)
+  end
+
+  def action_movies
+    @movies = Movie.action
     render json: @movies.to_json(include: :director)
   end
 
@@ -42,7 +47,7 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :gender, :release_date, :qualification, :director_id)
+    params.require(:movie).permit(:title, :genre, :release_date, :qualification, :director_id)
   end
 
   def movie

@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Requisitos de modelo planteados
 
-Things you may want to cover:
+### Usuario:
 
-* Ruby version
+- Nombre
+- documento (si es internacional la persona tenemos el pasporte o DNI o cedula)
+- Tipo documento
+- Fecha de nacimiento
+- Validen el formato de la cedula (si el tipo de documento es cedula)
+- Usuarios tiene que tener mas de 18 años
+- Opcional: Hacer diferentes tipos de usuarios (STI)
 
-* System dependencies
+### Peliculas:
 
-* Configuration
+- Titulo
+- Genero
+- Fecha de release
+- Calificacion
+- Reparto -> Relacion con los usuarios
+- Director -> Relacion con usuarios (Las peliculas tienen un solo director)
+- Relacion -> Source
+- Quiero poder filtrar por genero (Movie.action)
 
-* Database creation
+### Source:
 
-* Database initialization
+- Formato
+- Ubicacion
+- Duracion
+- Relacion con pelicula (1-1)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Ademas
+Modificar las peliculas para que genero sea un array de genero donde cada genero puede ser uno de [action, drama, comedia, ciencia ficcion, historico, terror, suspenso, fantasia]
+Que los generos sean simbolos
