@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     @movies = Movie.all
-    @movies = @movies.where(gender: params[:gender]) if params[:gender].present?
+    @movies = @movies.gender(params[:gender]) if params[:gender].present?
     render json: @movies.to_json(include: :director)
   end
 

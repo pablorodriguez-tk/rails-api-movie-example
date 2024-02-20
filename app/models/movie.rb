@@ -28,6 +28,8 @@ class Movie < ApplicationRecord
 
   before_save :downcase_gender
 
+  scope :gender, ->(gender) {where("lower(gender) = ?", gender.downcase)}
+
   def as_json(options = {})
     super(include: :actors)
   end
