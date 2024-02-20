@@ -32,12 +32,12 @@ class User < ApplicationRecord
 
   def check_ci_format
     if document_type.to_sym == :ci
-      errors.add(:document, "Invalid format for CI") unless validateCiUY(document)
+      errors.add(:document, "Invalid format for CI") unless validate_ci(document)
     end
   end
 
   def check_age
-    if birthday.present? && birthday > 18.years.ago
+    if birthday > 18.years.ago
       errors.add(:birthday, "You must be over 18 years old")
     end
   end
@@ -50,9 +50,8 @@ class User < ApplicationRecord
     normalize_document
   end
 
-  def validateCiUY(ci)
+  def validate_ci(ci)
     ci_array = ci.chars.map(&:to_i)
- puts ci
     return false unless ci_array.length == 8
     sum = 0
     multipliers = [2, 9, 8, 7, 6, 3, 4]
